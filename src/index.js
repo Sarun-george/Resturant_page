@@ -1,4 +1,16 @@
+// index.js
 import "./styles.css";
-import { greeting } from "./greeting.js";
+import { loadHomePage } from "./home.js";
+import { loadMenuPage } from "./menu.js";
+import { loadAboutPage } from "./about.js";
 
-console.log(greeting);
+
+const path = window.location.pathname;
+
+if (path.endsWith("index.html") || path.endsWith("/")) {
+  loadHomePage();
+} else if (path.endsWith("menu.html")) {
+  loadMenuPage();
+} else if (path.endsWith("about.html")) {
+  loadAboutPage();
+}
